@@ -18,7 +18,12 @@
     hostName = "home-server";
     networkmanager.enable = true;
     firewall = {
-      allowedTCPPorts = [ 22 80 443 8080 ];
+      allowedTCPPorts = [
+        22
+        80
+        443
+        8080
+      ];
       allowedUDPPorts = [ ];
     };
   };
@@ -32,7 +37,11 @@
   # User
   users.users.sean = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+      "networkmanager"
+    ];
   };
   # No Sudo
   nix.settings.allowed-users = [ "@wheel" ];
@@ -48,8 +57,21 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    wget git gh vim htop btop docker-compose tree erdtree
+    wget
+    git
+    gh
+    vim
+    htop
+    btop
+    docker-compose
+    tree
+    erdtree
+    nvd
   ];
+
+  programs.bash.shellAliases = {
+    rebuild = "nixos-rebuild switch --flake ~/nixServer#home-server && nvd diff /run/booted-system /run/current-system";
+  };
 
   # Docker
   virtualisation.docker.enable = true;
@@ -61,7 +83,10 @@
   };
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "24.11";

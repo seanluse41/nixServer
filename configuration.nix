@@ -43,8 +43,6 @@
       "networkmanager"
     ];
   };
-  # No Sudo
-  nix.settings.allowed-users = [ "@wheel" ];
 
   # Hardware acceleration (Intel N100)
   hardware.graphics = {
@@ -70,7 +68,7 @@
   ];
 
   programs.bash.shellAliases = {
-    rebuild = "nixos-rebuild switch --flake ~/nixServer#home-server && nvd diff /run/booted-system /run/current-system";
+    rebuild = "sudo nixos-rebuild switch --flake ~/nixServer#home-server && nvd diff /run/booted-system /run/current-system";
   };
 
   # Docker

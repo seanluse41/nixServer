@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./modules/ddns.nix
+  ];
 
   # Boot
   boot.loader.systemd-boot.enable = true;

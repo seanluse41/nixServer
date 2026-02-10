@@ -1,10 +1,11 @@
 { config, ... }:
 {
-  sops.secrets.porkbun-api-key = {};
-  sops.secrets.porkbun-secret-key = {};
+  sops.secrets.porkbun-api-key = { };
+  sops.secrets.porkbun-secret-key = { };
 
   sops.templates."ddns-config.json" = {
     path = "/etc/ddns-updater/config.json";
+    owner = "ddns-updater";
     content = ''
       {
         "settings": [

@@ -6,6 +6,8 @@
   sops.templates."ddns-config.json" = {
     path = "/etc/ddns-updater/config.json";
     owner = "ddns-updater";
+    group = "ddns-updater";
+    mode = "0440";
     content = ''
       {
         "settings": [

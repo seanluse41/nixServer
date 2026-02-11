@@ -3,8 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/ddns.nix
-    ./modules/headscale.nix
+    ./modules/tailscale.nix
   ];
 
   # Boot

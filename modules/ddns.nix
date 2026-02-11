@@ -20,7 +20,7 @@
           {
             "provider": "porkbun",
             "domain": "zoocom.homes",
-            "host": "headscale",
+            "owner": "headscale",
             "api_key": "${config.sops.placeholder.porkbun-api-key}",
             "secret_api_key": "${config.sops.placeholder.porkbun-secret-key}"
           }
@@ -36,7 +36,7 @@
     environment = {
       CONFIG_FILEPATH = "/etc/ddns-updater/config.json";
       SERVER_ENABLED = "no";
-      PERIOD = "5m";
+      PERIOD = "30m";
     };
   };
 }

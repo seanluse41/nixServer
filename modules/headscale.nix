@@ -9,7 +9,6 @@
       dns = {
         base_domain = "hs.zoocom.homes";  
         magic_dns = true;
-        use_username_in_magic_dns = false;
         nameservers.global = [ "1.1.1.1" "8.8.8.8" ];
       };
       logtail.enabled = false;

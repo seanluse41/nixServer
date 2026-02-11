@@ -7,8 +7,9 @@
     settings = {
       server_url = "https://headscale.zoocom.homes";
       dns = {
-        base_domain = "hs.net";  # must NOT be a substring of server_url
+        base_domain = "hs.zoocom.homes";  
         magic_dns = true;
+        use_username_in_magic_dns = false;
         nameservers.global = [ "1.1.1.1" "8.8.8.8" ];
       };
       logtail.enabled = false;

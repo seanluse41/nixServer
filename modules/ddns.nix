@@ -1,7 +1,13 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   sops.secrets.porkbun-api-key = { };
   sops.secrets.porkbun-secret-key = { };
+
+  users.users.ddns-updater = {
+    isSystemUser = true;
+    group = "ddns-updater";
+  };
+  users.groups.ddns-updater = { };
 
   sops.templates."ddns-config.json" = {
     path = "/etc/ddns-updater/config.json";
@@ -22,6 +28,8 @@
       }
     '';
   };
+
+  systemd.services.ddns-updater.serviceConfig.DynamicUser = lib.mkForce false;
 
   services.ddns-updater = {
     enable = true;

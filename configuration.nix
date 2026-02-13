@@ -17,6 +17,11 @@
     age.keyFile = "/var/lib/sops-nix/key.txt";
   };
 
+  # build packages on desktop push to server
+  nix.settings.trusted-public-keys = [
+    "desktop:BhUdL4xwaKkc77fe+B7iQulMzkd5VWXSyQKZ2rnGp04="
+  ];
+
   # Networking
   networking = {
     hostName = "home-server";

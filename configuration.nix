@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/tailscale.nix
+    ./modules/immich.nix
   ];
 
   # Boot

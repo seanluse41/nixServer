@@ -83,6 +83,14 @@ in
     rebuild = "sudo nixos-rebuild switch --flake ~/nixServer#home-server && nvd diff /run/booted-system /run/current-system";
   };
 
+  # garbage
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 3d";
+  };
+  nix.settings.auto-optimise-store = true;
+
   # Docker
   virtualisation.docker.enable = true;
 

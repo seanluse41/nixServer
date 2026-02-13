@@ -91,6 +91,12 @@ in
   };
   nix.settings.auto-optimise-store = true;
 
+  # Limit systemd journal size
+  services.journald.extraConfig = ''
+    SystemMaxUse=100M
+    MaxRetentionSec=3day
+  '';
+
   # Docker
   virtualisation.docker.enable = true;
 

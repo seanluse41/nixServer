@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  consts = import ./consts.nix;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -23,17 +25,15 @@
     "desktop:BhUdL4xwaKkc77fe+B7iQulMzkd5VWXSyQKZ2rnGp04="
   ];
 
-  # Networking
   networking = {
     hostName = "home-server";
-    useDHCP = true; #
-    networkmanager.enable = false;
+    networkmanager.enable = true;
     firewall = {
       allowedTCPPorts = [
-        22
-        80
-        443
-        8080
+        consts.ports.ssh
+        consts.ports.http
+        consts.ports.https
+        consts.ports.immich
       ];
       allowedUDPPorts = [ ];
     };

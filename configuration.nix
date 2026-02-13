@@ -68,6 +68,7 @@
     tree
     erdtree
     nvd
+    claude-code
   ];
 
   programs.bash.shellAliases = {

@@ -25,7 +25,8 @@
   # Networking
   networking = {
     hostName = "home-server";
-    networkmanager.enable = true;
+    useDHCP = true; #
+    networkmanager.enable = false;
     firewall = {
       allowedTCPPorts = [
         22

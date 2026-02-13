@@ -6,6 +6,7 @@
     ./modules/tailscale.nix
     ./modules/immich.nix
     ./modules/remote-reboot.nix
+    ./modules/ethernet-watchdog.nix
   ];
 
   # Boot

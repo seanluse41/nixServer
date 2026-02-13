@@ -17,5 +17,10 @@
     };
   };
 
+  # Install Immich CLI for importing
+  environment.systemPackages = with pkgs; [
+    immich-cli
+  ];
+
   networking.firewall.allowedTCPPorts = [ 2283 ];
 }

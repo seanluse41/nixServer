@@ -23,10 +23,6 @@ in
       echo "$LOG_MSG" >> /var/log/borg-backup.log
       ${pkgs.curl}/bin/curl -fsS -m 10 --retry 3 "${ssdPushUrl}?status=up&msg=$LOG_MSG" || true
     '';
-    
-    postFail = ''
-      ${pkgs.curl}/bin/curl -fsS -m 10 --retry 3 "${ssdPushUrl}?status=down&msg=Backup failed" || true
-    '';
   };
 
   services.borgbackup.jobs."immich-to-pi" = {
@@ -44,10 +40,6 @@ in
       LOG_MSG="Pi backup completed at $(date)"
       echo "$LOG_MSG" >> /var/log/borg-backup.log
       ${pkgs.curl}/bin/curl -fsS -m 10 --retry 3 "${piPushUrl}?status=up&msg=$LOG_MSG" || true
-    '';
-    
-    postFail = ''
-      ${pkgs.curl}/bin/curl -fsS -m 10 --retry 3 "${piPushUrl}?status=down&msg=Pi backup failed" || true
     '';
   };
 }

@@ -8,6 +8,7 @@ in
     ./modules/tailscale.nix
     ./modules/immich.nix
     ./modules/ethernet-watchdog.nix
+    ./modules/borg-backup.nix
   ];
 
   # Boot

@@ -9,6 +9,7 @@ in
     ./modules/immich.nix
     ./modules/ethernet-watchdog.nix
     ./modules/borg-backup.nix
+    ./modules/uptime-kuma.nix
   ];
 
   # Boot

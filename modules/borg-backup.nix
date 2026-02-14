@@ -1,23 +1,18 @@
 { config, pkgs, ... }:
 {
-  # Install borg
   environment.systemPackages = with pkgs; [ borgbackup ];
 
-  # Borg backup to USB SSD
   services.borgbackup.jobs."immich-to-ssd" = {
-    paths = [ config.services.immich.mediaLocation ];
+    paths = [ "/var/lib/immich-pictures" ];
     repo = "/ssd/backups/immich";
-    startAt = "daily";
-    compression = "zstd,3";  # Good compression, fast
-    encryption.mode = "none";  # No encryption for local backup
+    startAt = "weekly";  # Every Sunday at midnight
+    compression = "zstd,3";
+    encryption.mode = "none";
     
     prune.keep = {
-      daily = 7;
-      weekly = 4;
-      monthly = 3;
+      weekly = 4;  # Keep last 4 weeks
     };
     
-    # Run after backup completes
     postHook = ''
       echo "Backup completed at $(date)" >> /var/log/borg-backup.log
     '';

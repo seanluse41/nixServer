@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  consts = import ../consts.nix;
+in
 {
   environment.systemPackages = with pkgs; [ borgbackup ];
 

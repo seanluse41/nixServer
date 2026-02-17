@@ -6,7 +6,8 @@ in
   services.uptime-kuma = {
     enable = true;
     settings = {
-      port = "3001";
+      PORT = "3001";
+      UPTIME_KUMA_HOST = "0.0.0.0";
     };
   };
 

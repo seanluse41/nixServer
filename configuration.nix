@@ -11,6 +11,7 @@ in
     ./modules/borg-backup.nix
     ./modules/uptime-kuma.nix
     ./modules/nfs.nix
+    ./modules/jellyfin.nix
   ];
 
   # Boot

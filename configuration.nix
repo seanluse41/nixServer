@@ -10,6 +10,7 @@ in
     ./modules/ethernet-watchdog.nix
     ./modules/borg-backup.nix
     ./modules/uptime-kuma.nix
+    ./modules/nfs.nix
   ];
 
   # Boot

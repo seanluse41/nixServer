@@ -12,6 +12,7 @@ in
     ./modules/uptime-kuma.nix
     ./modules/nfs.nix
     ./modules/jellyfin.nix
+    ./modules/transmission.nix
   ];
 
   # Boot
